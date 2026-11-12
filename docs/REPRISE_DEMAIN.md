@@ -9,3 +9,8 @@ Lire `docs/AVANCEMENT_2026-11-12.md` pour le périmètre, les vérifications et 
 Aucun bulletin réglementaire n’est encore produit. Cotisations et nets fiscal/social sont des paramètres manuels de simulation. Le prochain chantier est la validation des écrans avec Maguy puis le choix et la construction du moteur réglementaire.
 
 Préserver la clé navigateur `mapaye-demo-v1` et les données existantes. Les bulletins test sont conservés comme photographies de leurs paramètres, sans écraser les précédents. Les JSON et CSV du navigateur ne doivent pas être déposés dans ce dépôt public s’ils contiennent des données réelles.
+
+
+## Complément version 0.4
+
+Lire `docs/AVANCEMENT_2026-11-12_ENTREPRISE.md` : recherche SIRET, caisses sociales au choix et paiement fixe au 5 du mois suivant, intégrés aux nouveaux bulletins et exports. La DSN attend le feu vert explicite de Maguy.
