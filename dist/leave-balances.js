@@ -1,0 +1,6 @@
+/* Compteurs de jours : droits saisis, aucune acquisition légale supposée. */
+(function(root){
+function days(v){const s=String(v??0).replace(',','.');if(!/^\d+(\.\d{1,2})?$/.test(s)||Number(s)>100000)throw Error('Compteur de congés invalide : utilisez des jours positifs avec deux décimales maximum.');const [a,b='']=s.split('.');return Number(a)*100+Number(b.padEnd(2,'0'));}
+function calculate(v){if(v.leaveN1===''||v.leaveN1===undefined||v.leaveN===''||v.leaveN===undefined)return null;const n1=days(v.leaveN1),n=days(v.leaveN)+days(v.leaveAcquiredMonth||0),before1=days(v.leaveTakenN1||0),beforeN=days(v.leaveTakenN||0),taken=days(v.cpDays||0);if(before1>n1||beforeN>n)throw Error('Les congés déjà pris dépassent les droits : vérifiez les compteurs N−1 et N.');const from1=Math.min(taken,n1-before1),fromN=taken-from1;return{n1:n1/100,n:n/100,takenN1:(before1+from1)/100,takenN:(beforeN+fromN)/100,monthTaken:taken/100,taken:(before1+beforeN+taken)/100,balanceN1:(n1-before1-from1)/100,balanceN:(n-beforeN-fromN)/100,balance:(n1+n-before1-beforeN-taken)/100,excess:Math.max(0,fromN-(n-beforeN))/100};}
+const api={calculate};root.LeaveBalances=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+})(typeof globalThis!=='undefined'?globalThis:this);
