@@ -1,0 +1,5 @@
+const assert=require('node:assert/strict');const {validate,transportModes,cddEndReasons}=require('../dist/employee-fields.js');
+assert(transportModes.includes('Transports en commun / abonnement'));assert(cddEndReasons.includes('Terme du CDD atteint'));
+assert.doesNotThrow(()=>validate({contract:'CDD',startDate:'2026-11-01',actualEndDate:'2026-11-30',cddEndReason:'Terme du CDD atteint',transportMonthlyCost:'90.80',transportReimbursementPercent:'50',transportValidFrom:'2026-11-01',transportValidUntil:'2026-11-30'}));assert.doesNotThrow(()=>validate({}));
+assert.throws(()=>validate({transportMonthlyCost:'-1'}),/coût/);assert.throws(()=>validate({transportReimbursementPercent:'101'}),/100/);assert.throws(()=>validate({transportReimbursementPercent:'bad'}),/100/);assert.throws(()=>validate({transportValidFrom:'2026-12-01',transportValidUntil:'2026-11-30'}),/validité/);assert.throws(()=>validate({startDate:'2026-12-01',actualEndDate:'2026-11-30'}),/fin réelle/);assert.throws(()=>validate({contract:'CDD',cddEndReason:'Autre \/ à vérifier'}),/Précisez/);
+console.log('Transport et fin de CDD : données valides, champs facultatifs et incohérences contrôlés.');
