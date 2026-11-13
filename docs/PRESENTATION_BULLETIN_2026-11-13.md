@@ -12,3 +12,5 @@
 Vérification : tests de compatibilité des adresses et d'export PDF, aperçu navigateur et PDF contrôlés.
 
 À reprendre séparément : rubrique AT/MP à 6,48 % demandée précédemment, non ajoutée par cette modification de présentation.
+
+Ajustement : le bloc informations salarié occupe désormais la hauteur restante face au contrat, avec des lignes réparties pour supprimer la zone blanche inférieure, à l'écran et en PDF. Sur petit écran, les blocs gardent leur hauteur naturelle.
