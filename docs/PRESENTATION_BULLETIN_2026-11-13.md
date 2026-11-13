@@ -16,3 +16,5 @@ Vérification : tests de compatibilité des adresses et d'export PDF, aperçu na
 Ajustement : le bloc informations salarié occupe désormais la hauteur restante face au contrat, avec des lignes réparties pour supprimer la zone blanche inférieure, à l'écran et en PDF. Sur petit écran, les blocs gardent leur hauteur naturelle.
 
 Annulation à la demande de Maguy : retour à la hauteur compacte du bloc salarié. Suppression de l'étirement et de l'espacement accru entre les informations. Les deux encadrés adresse / informations salarié restent séparés.
+
+Nouvelle solution retenue : compacter la colonne employeur / contrat, avec les informations contractuelles disposées par paires et les motifs sur toute la largeur. Le bloc salarié reste à sa hauteur naturelle. Le tableau de paie remonte ; aucune donnée ni règle de calcul modifiée.
