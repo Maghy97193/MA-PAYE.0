@@ -15,7 +15,7 @@ employee=function(id){beforeLeaveEmployee(id);const p=db.people.find(p=>p.id===i
 const beforeLeaveValidation=EmployeeFields.validate;
 EmployeeFields.validate=function(v){beforeLeaveValidation(v);if((v.leaveN1===''&&v.leaveN!=='')||(v.leaveN===''&&v.leaveN1!==''))throw Error('Renseignez les droits N−1 et N, y compris zéro confirmé.');LeaveBalances.calculate({...v,cpDays:0});};
 const beforeLeaveDraft=draftMarkup;
-draftMarkup=function(d){let html=beforeLeaveDraft(d);const table=leaveTable(d.variables);return html.replace('<div class="net-block">',table+'<div class="net-block">');};
+draftMarkup=function(d){let html=beforeLeaveDraft(d);const table=leaveTable(d.variables);return html.replace('<div data-leave-summary></div>',table);};
 const beforeLeaveCSV=csv;
 csv=function(){const rows=[['Salarié','Période','Unité','Congés N−1 acquis','Congés N acquis','Pris N−1 cumulés','Pris N cumulés','Pris ce mois','Pris total','Solde N−1','Solde N','Solde total','Congés acquis ce mois','Heures de congés','Heures prévues du mois'],...people().map(p=>{const v=richVar(p);let b;try{b=LeaveBalances.calculate(v)}catch{}return[p.name,period(),v.cpUnit,...(b?[b.n1,b.n,b.takenN1,b.takenN,b.monthTaken,b.taken,b.balanceN1,b.balanceN,b.balance]:Array(9).fill('À renseigner')),v.leaveAcquiredMonth,v.cpLeaveHours,v.cpActualHours]})];const cell=v=>'"'+String(v??'').replace(/^[=+@-]/,"'$&").replace(/"/g,'""')+'"';download('ma-paye-conges-'+period()+'.csv','\ufeff'+rows.map(r=>r.map(cell).join(';')).join('\r\n'),'text/csv;charset=utf-8');};
 const beforeLeaveRender=render;
