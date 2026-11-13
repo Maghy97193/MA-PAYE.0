@@ -1,0 +1,18 @@
+const assert=require('node:assert/strict');
+global.PayrollTest=require('../dist/payroll-engine.js');
+const {hourlyVariables}=require('../dist/bulletin-revision.js');
+const d={period:'2026-10',person:{startDate:'2026-10-19',hourlyRate:'12.31'},variables:{salaryProrataApplied:true,salaryContractHours:'70',salaryMonthHours:'154',monthlySalary:'1867.06',base:'848.66',baseMode:'Mensuel',hours:'151.67',mealQty:'10',mealUnit:'12',mealTaxable:'0',rows:[{label:'Cotisation',baseMode:'gross',employeeRate:'6.90',employerRate:'8.55'}]}};
+const before=JSON.stringify(d),v=hourlyVariables(d);
+assert.equal(v.base,'861.70');assert.equal(v.hours,'70.00');assert.equal(v.salaryProrataApplied,false);assert.equal(v.precPeriod,'2026-10');assert.equal(v.mealQty,'10');assert.equal(JSON.stringify(d),before);assert.equal(d.person.startDate,'2026-10-19');
+assert.throws(()=>hourlyVariables({...d,variables:{...d.variables,salaryContractHours:''}}));
+const catalogue=require('../dist/employment-catalog.js');assert.ok(catalogue.natures.includes('CDD'));assert.ok(catalogue.schemes.includes('Apprentissage'));assert.ok(catalogue.subscriptions.includes('Navigo Annuel'));assert.equal(catalogue.options(catalogue.subscriptions,'Ancien abonnement')[0],'Ancien abonnement');
+console.log('Révision : 861,70 €, date d’entrée et original conservés ; catalogue et anciennes valeurs vérifiés.');
+const vm=require('node:vm'),fs=require('node:fs');
+const source={...structuredClone(d),id:'original',company:'entreprise',createdAt:'2026-11-01',issues:[],result:{base:848.66,gross:848.66}};
+let closed=0,saved=0,shown='';
+const ctx={db:{bulletins:[source]},BulletinRevision:{hourlyVariables},PayrollTest,engineInput:v=>({...v,hoursLines:[],bonus:'0',absenceDeduction:'0',extraGross:'0',travel:'0',travelTaxable:'0',transport:'0',advance:'0',otherDeduction:'0',taxableNet:'0',socialNet:'',pasRate:'0'}),structuredClone,crypto:{randomUUID:()=> 'revision'},save:()=>{saved++;return true},$:()=>({close:()=>closed++}),render:()=>{},showDraft:id=>{shown=id;},toast:()=>{},euroFmt:String};
+vm.createContext(ctx);vm.runInContext(fs.readFileSync(require.resolve('../dist/bulletin-revision-ui.js'),'utf8').split('const beforeRevisionShowDraft')[0],ctx);
+ctx.reviseDraftHourly('original');assert.equal(ctx.db.bulletins.length,2);assert.equal(ctx.db.bulletins[0],source);assert.equal(ctx.db.bulletins[1].result.base,861.70);assert.equal(ctx.db.bulletins[1].person.startDate,'2026-10-19');assert.equal(saved,1);assert.equal(shown,'revision');assert.equal(closed,1);
+ctx.reviseDraftHourly('original');assert.equal(ctx.db.bulletins.length,2);assert.equal(saved,1);
+ctx.db.bulletins=[structuredClone(source)];ctx.save=()=>false;ctx.reviseDraftHourly('original');assert.equal(ctx.db.bulletins.length,1);
+console.log('Enregistrement de la révision, absence de doublon et échec de sauvegarde vérifiés.');

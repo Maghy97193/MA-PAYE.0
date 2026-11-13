@@ -1,0 +1,9 @@
+(function(root){'use strict';
+const natures=['CDI','CDD','CDI de chantier','Contrat de mission (intérim)','Autre'];
+const variants=['Droit commun','CDI intermittent (CDII)','CDI intérimaire','CDI de chantier','CDI d’opération','Contrat à temps partagé','Portage salarial','Travail à domicile','Particulier employeur','Assistant maternel','Groupement d’employeurs','CDDI — insertion','Adultes-relais','Travail temporaire d’insertion','Intérim saisonnier','Intérim de remplacement','Autre — à préciser'];
+const schemes=['Aucun','Apprentissage','Professionnalisation','CUI-CAE / PEC','CUI-CIE','CUI — autre à préciser','Contrat aidé','Autre'];
+const reasons=['À renseigner','Remplacement d’un salarié absent','Remplacement d’un salarié passé provisoirement à temps partiel','Attente de l’entrée en CDI d’un salarié recruté','Départ définitif avant suppression du poste','Remplacement d’un non-salarié autorisé','Accroissement temporaire d’activité','Emploi saisonnier','CDD d’usage (CDDU) / extra — secteur autorisé','CDD à objet défini / de mission — conditions spécifiques','Complément de formation professionnelle — cadre légal à préciser','CDD senior — conditions à vérifier','Autre motif légal — à préciser'];
+const subscriptions=['Aucun','À définir','Navigo Mois','Navigo Semaine','Navigo Annuel','Imagine R — conditions à vérifier','Abonnement TER domicile-travail','Abonnement SNCF domicile-travail','Abonnement train + réseau urbain','Abonnement bus / métro / tramway','Abonnement interurbain / car','Abonnement maritime public','Abonnement à un service public de location de vélos','Autre abonnement — à préciser'];
+function options(list,value){return value&&!list.includes(value)?[value,...list]:list;}
+const api={natures,variants,schemes,reasons,subscriptions,options};if(typeof module!=='undefined'&&module.exports)module.exports=api;root.EmploymentCatalog=api;
+})(typeof globalThis!=='undefined'?globalThis:this);
