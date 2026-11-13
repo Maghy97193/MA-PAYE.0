@@ -1,0 +1,10 @@
+const assert=require('node:assert/strict');
+const {describe}=require('../dist/seniority.js');
+assert.match(describe({startDate:'2026-10-19'},'2026-10'),/^12 jours au 31\/10\/2026/);
+assert.match(describe({startDate:'2026-10-19',seniorityDate:'2020-10-31'},'2026-10'),/^6 ans au/);
+assert.match(describe({startDate:'2024-02-29'},'2025-02'),/^1 an au/);
+assert.match(describe({startDate:'2026-01-01',actualEndDate:'2026-10-19'},'2026-10'),/^9 mois 18 jours au 19\/10\/2026/);
+assert.equal(describe({startDate:'2026-02-30'},'2026-10'),'Date à renseigner');
+assert.match(describe({startDate:'2026-11-01'},'2026-10'),/^Non commencée/);
+assert.equal(describe({startDate:'2026-10-19'},'2026-13'),'Période à renseigner');
+console.log('Ancienneté : période, reprise, année bissextile, sortie et dates invalides vérifiées.');

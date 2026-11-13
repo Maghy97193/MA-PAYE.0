@@ -18,3 +18,5 @@ Ajustement : le bloc informations salarié occupe désormais la hauteur restante
 Annulation à la demande de Maguy : retour à la hauteur compacte du bloc salarié. Suppression de l'étirement et de l'espacement accru entre les informations. Les deux encadrés adresse / informations salarié restent séparés.
 
 Nouvelle solution retenue : compacter la colonne employeur / contrat, avec les informations contractuelles disposées par paires et les motifs sur toute la largeur. Le bloc salarié reste à sa hauteur naturelle. Le tableau de paie remonte ; aucune donnée ni règle de calcul modifiée.
+
+Ajout : ancienneté calendaire au dernier jour de la période (limitée à la fin réelle du contrat si renseignée), depuis la date de reprise d'ancienneté ou à défaut l'entrée. Deux lignes panier distinctes, même à zéro : part soumise au brut et part non soumise dans les remboursements. Répartition saisie dans la préparation, sans nouvelle règle d'exonération.
