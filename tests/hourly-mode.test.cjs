@@ -1,0 +1,11 @@
+const assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs');
+const PayrollTest=require('../dist/payroll-engine.js');
+const ctx={PayrollTest,SalaryProration:require('../dist/salary-proration.js'),autoVariables:v=>({...v,base:v.baseMode==='Horaire'?PayrollTest.quantityAmount(v.hours,v.hourlyRate).toFixed(2):v.monthlySalary}),richVar:()=>({}),variableMarkup:()=>'',readVariableForm:()=>({}),refreshCalculations:()=>{},render:()=>{},period:()=> '2026-10',euroFmt:n=>Number(n).toFixed(2)+' EUR'};
+global.PayrollTest=PayrollTest;
+vm.createContext(ctx);vm.runInContext(fs.readFileSync(require.resolve('../dist/salary-proration-ui.js'),'utf8'),ctx);
+const hourly=ctx.autoVariables({baseMode:'Horaire',hours:'70',hourlyRate:'12.31',salaryProrataApplied:true,salaryProrataDeduction:'1018.40'});
+assert.equal(hourly.base,'861.70');assert.equal(hourly.salaryProrataApplied,false);assert.equal(hourly.salaryProrataDeduction,'0.00');
+const monthly=ctx.autoVariables({baseMode:'Mensuel',salaryMode:'Automatique entrée / sortie',salaryHoursMode:'Horaires fournis',salaryMonthHours:'154',salaryContractHours:'70',monthlySalary:'1867.06',salaryStart:'2026-10-19'});
+assert.equal(monthly.base,'848.66');
+const html=fs.readFileSync(require.resolve('../dist/apercu-bulletin.html'),'utf8');assert.match(html,/70 h/);assert.match(html,/861,70/);assert.match(html,/12,31/);
+console.log('70 h × 12,31 = 861,70 ; changement de mode sans second prorata et mode mensuel distinct vérifiés.');

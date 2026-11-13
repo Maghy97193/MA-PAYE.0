@@ -20,3 +20,5 @@ Annulation à la demande de Maguy : retour à la hauteur compacte du bloc salari
 Nouvelle solution retenue : compacter la colonne employeur / contrat, avec les informations contractuelles disposées par paires et les motifs sur toute la largeur. Le bloc salarié reste à sa hauteur naturelle. Le tableau de paie remonte ; aucune donnée ni règle de calcul modifiée.
 
 Ajout : ancienneté calendaire au dernier jour de la période (limitée à la fin réelle du contrat si renseignée), depuis la date de reprise d'ancienneté ou à défaut l'entrée. Deux lignes panier distinctes, même à zéro : part soumise au brut et part non soumise dans les remboursements. Répartition saisie dans la préparation, sans nouvelle règle d'exonération.
+
+Calcul demandé pour l'aperçu : 70 h × 12,31 € = 861,70 € brut. Le mode Horaire indique désormais la quantité et le taux sur le bulletin écran / PDF et efface l'ancien indicateur de prorata mensuel lors du changement de mode. Le mode Mensuel conserve son calcul distinct. Les données salarié existantes ne sont pas remplacées.
