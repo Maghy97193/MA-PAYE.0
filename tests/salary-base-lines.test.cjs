@@ -1,0 +1,10 @@
+const assert=require('node:assert/strict');
+global.PayrollTest=require('../dist/payroll-engine.js');
+const {calculate}=require('../dist/salary-base-lines.js');
+const d={period:'2026-10',person:{startDate:'2026-10-19',hours:'151.67'},variables:{baseMode:'Horaire',hours:'70',hourlyRate:'12.31'},result:{base:861.70}};
+const before=JSON.stringify(d),r=calculate(d);
+assert.equal(r.reference,151.67);assert.equal(r.hours,81.67);assert.equal(r.paid,70);assert.equal(r.full,1867.06);assert.equal(r.deduction,1005.36);assert.equal(Number((r.full-r.deduction).toFixed(2)),861.70);assert.match(r.label,/19\/10\/2026/);assert.equal(JSON.stringify(d),before);
+assert.equal(calculate({...d,variables:{...d.variables,baseMode:'Mensuel'}}),null);
+assert.equal(calculate({...d,result:{base:848.66}}),null);
+assert.equal(calculate({...d,person:{...d.person,startDate:'2026-01-01'}}),null);
+console.log('151,67 − 81,67 = 70 h ; montants rapprochés, pas de double retenue, autres calculs conservés.');

@@ -7,5 +7,5 @@ const hourly=ctx.autoVariables({baseMode:'Horaire',hours:'70',hourlyRate:'12.31'
 assert.equal(hourly.base,'861.70');assert.equal(hourly.salaryProrataApplied,false);assert.equal(hourly.salaryProrataDeduction,'0.00');
 const monthly=ctx.autoVariables({baseMode:'Mensuel',salaryMode:'Automatique entrée / sortie',salaryHoursMode:'Horaires fournis',salaryMonthHours:'154',salaryContractHours:'70',monthlySalary:'1867.06',salaryStart:'2026-10-19'});
 assert.equal(monthly.base,'848.66');
-const html=fs.readFileSync(require.resolve('../dist/apercu-bulletin.html'),'utf8');assert.match(html,/70 h/);assert.match(html,/861,70/);assert.match(html,/12,31/);
+const html=fs.readFileSync(require.resolve('../dist/apercu-bulletin.html'),'utf8');assert.match(html,/81.67 h/);assert.match(html,/861,70/);assert.match(html,/12,31/);
 console.log('70 h × 12,31 = 861,70 ; changement de mode sans second prorata et mode mensuel distinct vérifiés.');
