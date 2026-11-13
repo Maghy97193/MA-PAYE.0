@@ -9,3 +9,38 @@ dialog{width:960px;max-height:90vh;overflow:auto}details{border:1px solid var(--
 
 /* Réduire la colonne contrat sans étirer le cadre salarié. */
 .pro-employer{padding:12px 14px}.payslip .pro-employer h2{margin-bottom:7px}.payslip .pro-employer h3{font-size:14px;margin-bottom:5px}.pro-employer p{margin:5px 0;font-size:10px}.pro-convention{margin-top:8px;padding-top:8px;gap:4px;font-size:10px}.pro-contract{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px;row-gap:7px;padding:12px 14px}.payslip .pro-contract h2{grid-column:1/-1;margin-bottom:2px}.pro-contract .contract-line{display:block;padding:0;font-size:10px;line-height:1.4}.pro-contract .contract-line span{display:inline;font-size:9px}.pro-contract .contract-line span:after{content:": "}.pro-contract .contract-line strong{display:inline;font-weight:600}.pro-contract .contract-wide{grid-column:1/-1}.pro-identities{margin-bottom:18px}@media(max-width:420px){.pro-contract{grid-template-columns:1fr}.pro-contract .contract-wide{grid-column:auto}}
+/* Impression compacte : police proportionnelle et espacements utiles uniquement. */
+@page{size:A4;margin:8mm}
+@media print{
+.no-print{display:none!important}
+.payslip{font-family:Arial,Helvetica,sans-serif;font-size:9pt;line-height:1.2;border:0;padding:0;border-radius:0}
+.payslip *{letter-spacing:normal!important;word-spacing:normal!important}
+.payslip p{margin:3px 0;line-height:1.2}
+.pro-slip-header{padding:7px 0 9px;margin:0 0 10px;border-bottom-width:1px}
+.payslip .pro-slip-header h1{font-size:17pt;margin:3px 0 0}
+.pro-eyebrow{font-size:7pt}.pro-period{font-size:8pt;gap:2px}.pro-period strong{font-size:14pt}
+.pro-identities{gap:12px;margin-bottom:9px;align-items:start;grid-template-columns:1.15fr 1fr}
+.pro-right{gap:8px;grid-template-rows:auto auto;align-self:start}
+.pro-employer,.pro-contract,.pro-person,.pro-address{padding:9px 10px;box-shadow:none;border:1px solid #dce4ea}
+.payslip .pro-identities h2{font-size:7pt;margin:0 0 5px}
+.payslip .pro-identities h3{font-size:10pt;margin:0 0 4px}
+.pro-employer p{font-size:8pt;margin:3px 0}
+.pro-convention{margin-top:5px;padding-top:5px;gap:3px;font-size:8pt}
+.pro-convention span{font-size:6.5pt}
+.pro-contract{margin-top:7px;column-gap:10px;row-gap:4px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.pro-contract .contract-line{font-size:8pt;line-height:1.2}
+.pro-contract .contract-line span{font-size:7.5pt}
+.pro-person .contract-line{font-size:8pt;line-height:1.2;padding:2px 0;min-height:0;flex:none;grid-template-columns:.75fr 1.4fr;gap:7px}
+.payslip .pro-address p{margin:0 0 3px;line-height:1.2}
+.payslip .pro-address .address-name{font-size:11pt}
+.payslip .pro-address .address-line,.payslip .pro-address .address-locality{font-size:9pt}
+.payslip .slip-table th{font-size:7pt;padding:6px 5px}
+.payslip .slip-table td{font-size:8pt;padding:4px 5px;line-height:1.2}
+.payslip .net-block{padding:8px 10px;margin-top:9px;gap:2px}
+.payslip .net-block>div{font-size:8pt;padding:2px 0}
+.payslip .net-block .final-net{font-size:12pt;margin:4px -10px -8px;padding:8px 10px}
+.leave-block{margin:9px 0;padding:8px 10px}.leave-block h3{font-size:8pt;margin:0 0 5px}
+.leave-table td,.leave-table th{font-size:8pt;padding:4px}
+.payslip>p{font-size:7pt;line-height:1.2;margin:4px 0}
+.payslip .test-banner{font-size:6.5pt;padding:4px}
+}
