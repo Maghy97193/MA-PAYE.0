@@ -3,6 +3,11 @@ Solutions.0 · gamme BTP — 14 novembre 2026
 
 Document commercial de travail. L’essai est fixé à 45 jours, et non 30. Les prix ci-dessous sont proposés pour validation avant commercialisation. Aucun abonnement, paiement ou prélèvement n’est activé. La vente d’une offre de production dépend de la validation de la paie, de la DSN et des comptes sécurisés.
 
+## Périmètre de lancement validé
+L’offre est réservée aux employeurs qui commencent leur première paie sans historique employeur à reprendre, par exemple lors d’une première embauche. Une entreprise déjà active peut être éligible si elle n’a encore jamais établi de paie et qu’aucun cumul ni droit acquis antérieur n’est à reprendre.
+
+La migration depuis un autre logiciel, la reprise d’historique et la correction de DSN antérieures ne sont pas proposées au lancement : aucune équipe n’est disponible pour ces prestations. Ne pas présenter un redémarrage à zéro comme une solution permettant d’ignorer des cumuls, congés acquis, régularisations ou obligations existants. Un salarié ou dossier comportant des droits à reprendre doit faire l’objet d’une vérification d’éligibilité avant acceptation.
+
 ## 1. Formules
 | Offre | Prix HT | Contenu proposé |
 |---|---:|---|
@@ -35,9 +40,7 @@ Le périmètre exact des profils, territoires, conventions et événements DSN s
 |---|---:|---|
 | Démarrage accompagné | 90 € | Une séance d’une heure pour un établissement, hors reprise d’historique ; le démarrage autonome reste sans frais de prestation |
 | Formation individuelle | 90 €/heure | Utilisation de l’outil, séance et objectif définis avant réservation |
-| Reprise d’une DSN antérieure provenant d’un autre outil | Sur devis, à partir de 180 € | Diagnostic du fichier et périmètre précisés ; volume, nombre de périodes et d’établissements évalués avant engagement |
-| Reprise d’historique de paie / migration | Sur devis, à partir de 180 € | Selon effectif, périodes, qualité des fichiers, cumuls et contrôles nécessaires |
-| Intervention personnalisée sur un dossier complexe | 90 €/heure, sur devis | Intervention humaine spécifiée : analyse, paramétrage particulier ou accompagnement ; coût total accepté avant intervention |
+| Assistance personnalisée au paramétrage | 90 €/heure, sur devis | Aide au démarrage dans le périmètre pris en charge, hors historique, migration et régularisation de DSN antérieure ; coût accepté avant intervention |
 
 Les montants « à partir de » ne sont pas des forfaits universels ni une garantie de correction de tout dossier. Tout devis définit le résultat attendu, le périmètre, le prix, les délais et ce qui est exclu. Aucun dépassement ou supplément sans accord préalable ; en cas de nouveau besoin, devis complémentaire. Pas de facturation simultanée au forfait et à l’heure pour la même intervention. La capacité et l’organisation du service humain restent à mettre en place avant de le proposer à la vente.
 
@@ -45,7 +48,7 @@ Les montants « à partir de » ne sont pas des forfaits universels ni une garan
 - Les dysfonctionnements imputables au logiciel sont corrigés sans facturer leur résolution au client.
 - Les corrections techniques ou déclaratives rendues nécessaires par un dysfonctionnement du logiciel ne doivent pas être requalifiées en prestation payante de reprise.
 - Une correction faite par le client dans les fonctions prévues ne génère pas à elle seule une prestation humaine facturable.
-- Une erreur de saisie, une reprise externe ou une assistance de traitement de dossier ne déclenche aucune facture automatique : la prestation humaine et son prix doivent être présentés et acceptés.
+- Une erreur de saisie ou une assistance au paramétrage ne déclenche aucune facture automatique : la prestation humaine et son prix doivent être présentés et acceptés.
 - Le coût des corrections et de l’assistance incluse doit être intégré au modèle économique de l’abonnement.
 
 ## 5. Fin d’essai et abonnement
@@ -60,3 +63,6 @@ Le choix de la période d’essai doit permettre de tester le parcours jusqu’�
 4. Tester la souscription et le paiement en environnement de test, puis autoriser l’ouverture commerciale après recette de la paie et de la DSN.
 
 Cette grille complète l’audit et remplace sa simple hypothèse de tarif pour servir de base à la discussion commerciale. Le tarif n’est pas activé dans l’application.
+
+## Décision complémentaire — 14 novembre 2026
+La reprise d’historique, la migration et les DSN antérieures sont retirées de l’offre. La durée d’essai reste 45 jours. Les prix de Standard et des prestations conservées restent proposés, non activés. Les documents de réflexion antérieurs évoquant des prestations de reprise sont historiques et ne décrivent plus l’offre de lancement.
