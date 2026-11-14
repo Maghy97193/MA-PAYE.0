@@ -2,6 +2,12 @@
 
 Test exécuté le 14 novembre 2026 sur la version 35, source hébergée `f3276a1630b32a2a71c22e1a63291819abc93f82`. Interface testée sur une copie locale de l’application avec une fiche « Cas octobre TEST ». Aucune donnée d’identité réelle, adresse, numéro de sécurité sociale ou pièce personnelle n’est enregistrée dans ce dépôt. Les dossiers du site hébergé n’ont pas été modifiés par cette recette.
 
+## Mise à jour : choix du mode horaire pour le test
+
+Après le premier compte rendu, l’utilisatrice a retenu le scénario **Horaire : 70 h × 12,31 € = 861,70 € brut de base**, hors primes. Ce mode et les 70 h ont été enregistrés dans la préparation de la fiche locale « Cas octobre TEST », puis le formulaire a été rouvert pour vérifier leur persistance. Aucun second prorata d’entrée n’est appliqué. Le résultat mensuel de 848,65 € décrit ci-dessous est conservé comme comparaison et ne constitue plus le scénario retenu pour cette recette.
+
+Les paramètres réutilisables sont enregistrés dans `tests/fixtures/october-pilot-payroll.json`. Le choix concerne ce test, sans modifier le mode des autres salariés ni certifier la cohérence contractuelle d’une paie réelle. Les cotisations, paniers et nets restent à compléter. Il ne s’agit pas d’un bulletin définitif.
+
 ## Paramètres
 
 - Entrée confirmée : 19/10/2026.
@@ -37,7 +43,7 @@ Test exécuté le 14 novembre 2026 sur la version 35, source hébergée `f3276a1
 Deux méthodes donnent des résultats différents et ne doivent pas être confondues :
 
 1. **Mode mensuel du contrat** : 1 867,02 € × 70 h / 154 h = **848,65 €** hors primes. Le mois complet compte 22 journées à 7 h. Les heures hors contrat représentent 84 h dans ce planning réel. La référence mensualisée de 151,67 h reste une donnée contractuelle, distincte du diviseur du mois réel.
-2. **Mode horaire comparatif** : 70 h × 12,31 € = **861,70 €** hors primes. Observé dans le formulaire, puis annulé afin de conserver le mode mensuel du contrat.
+2. **Mode horaire retenu pour le test** : 70 h × 12,31 € = **861,70 €** hors primes. Initialement testé sans enregistrement, puis enregistré après le choix explicite de l’utilisatrice.
 
 Le résultat horaire ne suffit pas à valider la paie d’un salarié mensualisé. De plus, 151,67 × 12,31 = 1 867,06 € après arrondi, et non 1 867,02 €. Rapprocher les références de rémunération et confirmer le traitement contractuel avant établissement du bulletin réel.
 

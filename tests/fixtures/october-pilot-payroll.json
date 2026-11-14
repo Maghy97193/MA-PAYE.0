@@ -1,0 +1,19 @@
+{
+  "scope": "Scénario de test anonymisé ; références contractuelles à rapprocher avant paie réelle",
+  "period": "2026-10",
+  "startDate": "2026-10-19",
+  "baseMode": "Horaire",
+  "hours": "70",
+  "hourlyRate": "12.31",
+  "expectedBase": "861.70",
+  "salaryProrataApplied": false,
+  "salaryProrataDeduction": "0.00",
+  "leaveN1": "16",
+  "leaveN": "0",
+  "expectedLeaveAcquiredMonth": "1.25",
+  "pasRate": "0",
+  "navigoPrice": "0",
+  "mealParametersConfirmed": false,
+  "contributionsConfirmed": false,
+  "finalPayrollValidated": false
+}

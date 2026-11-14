@@ -12,6 +12,20 @@ const D=require('../dist/dsn-preparation.js');
 const plan=Object.fromEntries(Array.from({length:7},(_,i)=>['cpPlan'+i,i>0&&i<6?'7':'0']));
 const person={id:'pilot-october',company:'pilot',name:'Cas octobre TEST',matricule:'TEST-OCT',startDate:'2026-10-19',endDate:'2026-11-15',contract:'CDD',workMode:'Temps plein',hours:151.67,job:'Ouvrier exécutant',classification:'OE1',cddReason:'Accroissement temporaire d’activité'};
 const imported=I.map(I.csv(fs.readFileSync(__dirname+'/fixtures/october-pilot-hours.csv','utf8')));
+const retained=require('./fixtures/october-pilot-payroll.json');
+
+test('Choix utilisateur : scénario horaire retenu à 861,70 sans second prorata',()=>{
+  const vm=require('node:vm');
+  const context={PayrollTest,SalaryProration:S,autoVariables:v=>({...v,base:v.baseMode==='Horaire'?PayrollTest.quantityAmount(v.hours,v.hourlyRate).toFixed(2):v.monthlySalary}),richVar:()=>({}),variableMarkup:()=>'',readVariableForm:()=>({}),refreshCalculations:()=>{},render:()=>{},period:()=>retained.period,euroFmt:n=>Number(n).toFixed(2)+' EUR'};
+  vm.createContext(context);
+  vm.runInContext(fs.readFileSync(require.resolve('../dist/salary-proration-ui.js'),'utf8'),context);
+  const result=context.autoVariables({...retained,salaryProrataApplied:true,salaryProrataDeduction:'1018.37'});
+  assert.equal(result.baseMode,'Horaire');
+  assert.equal(result.base,retained.expectedBase);
+  assert.equal(result.salaryProrataApplied,false);
+  assert.equal(result.salaryProrataDeduction,'0.00');
+  assert.equal(retained.finalPayrollValidated,false);
+});
 
 test('Pilote octobre : import de 13 dates, deux semaines de 35 h et 70 h mensuelles',()=>{
   assert.equal(imported.length,13);
