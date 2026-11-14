@@ -83,13 +83,14 @@ dialog{width:960px;max-height:90vh;overflow:auto}details{border:1px solid var(--
 
 .logo .brand-sector{display:block;margin-top:5px;font-size:11px;font-weight:650;letter-spacing:3px;color:#cfddd5}
 
-/* Entreprise, période et accès abonné : commandes alignées. */
-.top{display:grid;grid-template-columns:minmax(140px,1fr) auto;align-items:center;gap:18px}
-.workspace-controls{display:grid;grid-template-columns:minmax(180px,280px) 180px 170px;gap:10px;align-items:stretch;min-width:0}
-.workspace-controls>#company,.workspace-controls>#period,.workspace-controls>button{width:100%;min-width:0;height:46px;margin:0;padding:10px 12px;box-sizing:border-box;border:1px solid #d5ded9;border-radius:9px;font-size:14px}
-.workspace-controls>#period,.workspace-controls>button{background:#edf0ef;color:var(--ink)}
+/* En-tête sur deux lignes : accès abonné au-dessus des filtres. */
+.top{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px 16px}
+.top>span{grid-column:1;grid-row:1;min-width:0;line-height:1.5}
+.top>.subscriber-top{grid-column:2;grid-row:1;justify-self:end;min-height:44px;margin:0;padding:10px 16px;background:#edf0ef;color:var(--ink);border:1px solid #d5ded9;border-radius:9px;white-space:nowrap}
+.top>.subscriber-top:hover{background:#e1e8e4}
+.workspace-controls{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:stretch;min-width:0}
+.workspace-controls>#company,.workspace-controls>#period{width:100%;min-width:0;height:46px;margin:0;padding:10px 12px;box-sizing:border-box;border:1px solid #d5ded9;border-radius:9px;font-size:14px}
 .workspace-controls>#company{background:#fff}
-.workspace-controls>button:hover{background:#e1e8e4}
+.workspace-controls>#period{background:#edf0ef;color:var(--ink)}
 .time-import-help{flex-basis:100%;margin:2px 0 0;font-size:12px;line-height:1.5;color:#60786b}
-@media(max-width:1200px){.top{grid-template-columns:1fr}.workspace-controls{grid-template-columns:minmax(180px,1.5fr) minmax(150px,1fr) minmax(150px,1fr)}}
-@media(max-width:650px){.workspace-controls{grid-template-columns:1fr}.workspace-controls>#company,.workspace-controls>#period,.workspace-controls>button{height:46px}}
+@media(max-width:650px){.top{gap:12px 10px}.top>span{font-size:12px}.top>.subscriber-top{font-size:12px;padding:10px 12px}.workspace-controls{gap:10px}.workspace-controls>#company,.workspace-controls>#period{font-size:13px;padding:10px 8px}}
