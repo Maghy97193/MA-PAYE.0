@@ -1,5 +1,5 @@
 # MA PAYE.0 — version BTP : audit, recette et projet d’offres
-Date : 14 novembre 2026. Document de travail, tarifs et parcours commerciaux non approuvés. Aucun paiement ni essai chronométré activé.
+Date : 14 novembre 2026. Document de travail, durée d’essai de 45 jours validée ; tarifs et autres modalités commerciales encore proposés. Aucun paiement ni essai chronométré activé.
 
 ## 1. Décision produit
 Marque Solutions.0, gamme BTP. Finaliser cette version avant d’ouvrir à d’autres activités. La version publiée actuelle est la 34 ; les développements sont conservés dans la branche ma-paye-0-version-btp.
@@ -44,18 +44,19 @@ Comptes de deux entreprises et rôles distincts : impossibilité d’accéder au
 ### P1 : parcours commercial
 Tester début et fin d’essai, limites de dates/fuseau horaire, essai non renouvelable par simple changement d’e-mail, paiement accepté/refusé, notification répétée ou retardée, abonnement annulé et reprise. Les droits payants dépendent du serveur et d’un paiement confirmé, pas du retour visuel d’une page de paiement. Préserver consultation et récupération des documents selon la politique contractuelle et légale.
 
-## 5. Offre d’essai proposée
-Nom : « Essai gratuit 30 jours » plutôt que « Free », qui pourrait laisser entendre une offre gratuite permanente.
-- Une entreprise, un essai, compte vérifié. Départ et échéance affichés ; durée de 30 jours maximum, non prolongée automatiquement.
-- Proposition : pas de carte demandée au départ ; bascule payante uniquement après choix explicite et paiement.
-- À l’échéance : bloquer nouvelles saisies de production, nouveaux bulletins et nouvelles déclarations. Garder consultation/export des documents existants selon la politique à formaliser ; ne pas supprimer automatiquement les données.
-- Avertissements visibles avant échéance et état du dossier DSN à terminer ; aucun renouvellement gratuit automatique.
-- La DSN de M est déposée en M+1 : un essai ouvert au début de M peut expirer avant la date de dépôt. Pour tester le cycle entier en 30 jours, proposer un dossier de démonstration sur une période déjà clôturée ou un démarrage de l’essai au moment où le dossier réel est prêt. Ne pas promettre que toute inscription permet une DSN réelle avant la fin de l’essai.
-- L’essai de production ne pourra être ouvert qu’une fois la paie et la DSN prêtes ; l’actuel prototype reste une démonstration de test.
+## 5. Offre d’essai — durée validée : 45 jours
+Décision de Maguy : essai gratuit de 45 jours à compter de l’activation, au lieu de 30 jours ou d’une fenêtre fixe du 15 au 15. Nom retenu : « Essai gratuit 45 jours ». Pas d’offre gratuite permanente.
+
+- Une entreprise, un essai, compte vérifié. Départ et échéance affichés ; pas de prolongation automatique.
+- Proposition conservée : pas de carte demandée au départ ; bascule payante uniquement après choix explicite de la formule et paiement confirmé.
+- Parcours visé : heures → préparation → bulletin → DSN, avec une période de paie choisie pour tester le cycle. Vérifier dès l’activation que l’échéance DSN du dossier et les contrôles nécessaires sont couverts ; ne pas garantir qu’un mois calendaire complet pourra être observé à partir de n’importe quelle inscription.
+- Rappels avant échéance. Après expiration, bloquer les nouvelles opérations de production ; conserver consultation et récupération des documents selon la politique contractuelle et légale à formaliser.
+- La DSN est déposée le mois suivant la paie selon l’échéance applicable. La fenêtre du 15 au 15 n’est pas retenue, car elle peut finir le jour même du dépôt et laisse peu de marge pour les retours.
+- La durée de 45 jours est décidée ; l’essai de production, les comptes clients, l’abonnement et les paiements ne sont pas activés. Leur ouverture dépend de la validation du moteur de paie, de la chaîne DSN et du socle sécurisé.
 
 ## 6. Tarification — hypothèse à valider
 Deux offres seulement au lancement :
-- Essai gratuit 30 jours : 0 €, sans engagement payant automatique.
+- Essai gratuit 45 jours : 0 €, sans engagement payant automatique.
 - Standard BTP : 29 € HT par entreprise/mois + 6 € HT par salarié ayant une paie sur le mois. Corrections du même salarié/mois incluses pour éviter une double facturation.
 Exemples HT : 1 salarié = 35 €/mois ; 5 salariés = 59 € ; 10 salariés = 89 €.
 Sans engagement annuel au lancement. Le nombre d’établissements et les prestations d’accompagnement incluses sont à définir.
