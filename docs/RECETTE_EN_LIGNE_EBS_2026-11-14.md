@@ -27,7 +27,7 @@ L’installation conserve les autres fiches, variables, documents et taux. Elle 
 | Vieillesse déplafonnée | 0,400 | 2,110 |
 | Allocations familiales et complément | 0 | 3,450 + 1,800 |
 | Dialogue social | 0 | 0,016 |
-| AT/MP | 0 | **6,480** |
+| AT/MP — effet 01/01/2026 | 0 | **6,160** |
 | FNAL | 0 | 0,100 |
 | Chômage | 0 | 4,000 |
 | AGS | 0 | 0,250 |
@@ -54,8 +54,8 @@ Les montants de réduction générale et de TEPA d’août ne sont pas réutilis
 | Brut | **861,70 €** |
 | Assiette CSG / CRDS, complément zéro dans le scénario | 846,62 € |
 | Cotisations salariales saisies | 179,58 € |
-| Cotisations patronales saisies, avant allègements et paramètres absents | 585,76 € |
-| AT/MP exclusivement employeur | 55,84 € |
+| Cotisations patronales saisies, avant allègements et paramètres absents | 583,00 € |
+| AT/MP exclusivement employeur | 53,08 € |
 | CIBTP exclusivement employeur | 168,89 € |
 | Net technique avant et après PAS zéro, hors frais | 682,12 € |
 | Net imposable technique du scénario simplifié | 706,67 € |
@@ -79,3 +79,12 @@ Les nouveaux boutons permettent de rouvrir la préparation, de voir/télécharge
 Quantité et régime social des paniers à confirmer ; notification et code risque AT/MP à renseigner ; application des bases majorées, des plafonds, des droits CIBTP et des organismes à contrôler. Mutuelle, prévoyance, santé au travail, intempéries et allègements à documenter si applicables. Le coût patronal affiché est avant allègements, pas le coût définitif. L’identité DSN sécurisée et le moteur déclaratif restent à construire.
 
 Reproduction : `node --test tests/*.test.cjs`. Tests dédiés : `tests/october-online-pilot.test.cjs`. Fichiers applicatifs : `dist/october-pilot.js` et `dist/october-pilot-ui.js`.
+
+## Correction du taux AT/MP enregistré
+
+La fiche entreprise enregistrée est prioritaire sur le bulletin historique : **6,16 % avec effet au 01/01/2026**, selon la correction explicite de l’utilisatrice. Le pilote ne force plus le taux 6,48 % d’août lors de la génération. Il lit le taux et sa période de validité dans la fiche entreprise et les photographie dans le bulletin de test. Les autres taux ne sont pas modifiés. La correction du pilote précédent conserve les anciens bulletins et crée une nouvelle simulation lors de la prochaine ouverture. Cotisation AT/MP : **861,70 × 6,16 % = 53,08 € employeur**, part salarié zéro. Les cotisations patronales saisies deviennent **583,00 € avant allègements** ; les montants salariés et le net technique restent identiques.
+
+
+## Import AT/MP et feuille PRO BTP reçus après la première correction
+
+Le CSV confirme le code risque **454LE** et distingue effet **01/01/2026**, décision **12/12/2025** et notification **08/01/2026**. La date du 8 janvier citée initialement par l’utilisatrice est la notification. L’onglet Paramètres et les lecteurs d’import sont documentés dans `IMPORT_DONNEES_ORGANISMES.md`. La feuille PRO BTP ajoute des informations de prévoyance et un forfait santé qui n’étaient pas visibles sur le bulletin historique : ils restent dans un catalogue à confirmer, sans modifier silencieusement le bulletin de test initial.

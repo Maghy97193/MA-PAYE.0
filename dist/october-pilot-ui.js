@@ -6,8 +6,8 @@ function openPilot(){company=installed.companyId;$('#period').value=OctoberPilot
 function pilotSnapshot(){
   const p=db.people.find(p=>p.id===OctoberPilot.personId),previousCompany=company;company=installed.companyId;
   const v=richVar(p),rows=v.rows?.length?structuredClone(v.rows):OctoberPilot.referenceRows(v.base,PayrollTest);
-  const at=rows.find(r=>/accident.*travail|AT\/MP/i.test(r.label));
-  if(at){at.employeeRate='0';at.employerRate='6.48';}else rows.push({label:'Accident du travail — taux confirmé',baseMode:'gross',base:'0',employeeRate:'0',employerRate:'6.48',csgInclude:'Non'});
+  const at=rows.find(r=>/accident.*travail|AT\/MP/i.test(r.label)),registeredAt=OctoberPilot.companyAtmp(db.companies.find(c=>c.id===company),OctoberPilot.month);
+  if(at)Object.assign(at,registeredAt);else rows.push(registeredAt);
   const simulated=OctoberPilot.simulation(v,engineInput(v),rows,PayrollTest);
   const snapshot={id:OctoberPilot.documentId,pilotSignature:JSON.stringify({v,rows}),company,personId:p.id,period:OctoberPilot.month,paymentDate:CompanyUtils.paymentDate(OctoberPilot.month),createdAt:new Date().toISOString(),engine:PayrollTest.version,person:structuredClone(p),employer:structuredClone(db.companies.find(c=>c.id===company)),variables:simulated.variables,result:simulated.result,technicalPilot:true,simulationAssumptions:simulated.assumptions,issues:simulated.assumptions};
   company=previousCompany;return snapshot;
