@@ -82,3 +82,14 @@ dialog{width:960px;max-height:90vh;overflow:auto}details{border:1px solid var(--
 .time-toolbar{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.time-toolbar label{margin:0}.time-toolbar input[type=file]{max-width:190px;padding:4px;font-size:12px}.time-totals{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.time-total{background:#edf4f0;border:1px solid #d6e3db;padding:15px;border-radius:10px}.time-total span{display:block;font-size:12px}.time-total strong{display:block;font-size:24px;margin-top:8px}.time-sheet{min-width:1250px}.time-sheet input{width:85px;padding:8px;font-size:13px}.time-sheet td:nth-child(2) input,.time-sheet td:last-child input{width:150px}.time-sheet td,.time-sheet th{padding:8px 5px}.time-context{background:#eef3f8}.time-disabled{background:#f2f2f2;opacity:.6}.time-sheet small{display:block;font-size:10px}.time-check{display:flex;align-items:start;gap:10px;line-height:1.5}.time-check input{width:18px;min-width:18px;height:18px;margin-top:3px}@media(max-width:700px){.time-totals{grid-template-columns:repeat(2,1fr)}.time-toolbar .btn{width:100%}}
 
 .logo .brand-sector{display:block;margin-top:5px;font-size:11px;font-weight:650;letter-spacing:3px;color:#cfddd5}
+
+/* Entreprise, période et accès abonné : commandes alignées. */
+.top{display:grid;grid-template-columns:minmax(140px,1fr) auto;align-items:center;gap:18px}
+.workspace-controls{display:grid;grid-template-columns:minmax(180px,280px) 180px 170px;gap:10px;align-items:stretch;min-width:0}
+.workspace-controls>#company,.workspace-controls>#period,.workspace-controls>button{width:100%;min-width:0;height:46px;margin:0;padding:10px 12px;box-sizing:border-box;border:1px solid #d5ded9;border-radius:9px;font-size:14px}
+.workspace-controls>#period,.workspace-controls>button{background:#edf0ef;color:var(--ink)}
+.workspace-controls>#company{background:#fff}
+.workspace-controls>button:hover{background:#e1e8e4}
+.time-import-help{flex-basis:100%;margin:2px 0 0;font-size:12px;line-height:1.5;color:#60786b}
+@media(max-width:1200px){.top{grid-template-columns:1fr}.workspace-controls{grid-template-columns:minmax(180px,1.5fr) minmax(150px,1fr) minmax(150px,1fr)}}
+@media(max-width:650px){.workspace-controls{grid-template-columns:1fr}.workspace-controls>#company,.workspace-controls>#period,.workspace-controls>button{height:46px}}
