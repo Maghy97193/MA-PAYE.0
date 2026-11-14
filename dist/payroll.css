@@ -45,7 +45,7 @@ dialog{width:960px;max-height:90vh;overflow:auto}details{border:1px solid var(--
 .payslip .test-banner{font-size:6.5pt;padding:4px}
 }
 /* Fiche établissement : chaque affiliation dispose de son propre bloc. */
-.company-organisms-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+.company-organisms-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch;grid-auto-rows:1fr}
 .company-organism-card{margin:0;min-width:0;padding:18px;border:1px solid #d6e1da;border-radius:11px;background:#fff}
 .company-organism-card legend{padding:0 8px;font-weight:700;font-size:14px;color:#245548;max-width:100%}
 .company-organism-card h3{margin:0 0 12px;font-size:15px;color:#245548}
@@ -57,3 +57,11 @@ dialog{width:960px;max-height:90vh;overflow:auto}details{border:1px solid var(--
 .company-organism-wide .company-organism-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
 .company-organism-wide .company-organism-fields>p{grid-column:1/-1}
 @media(max-width:700px){.company-organisms-grid,.company-organism-wide .company-organism-fields{grid-template-columns:1fr}.company-organism-card{padding:14px}.company-organism-wide{grid-column:auto}}
+
+/* Equal organism cards and aligned salary payment controls. */
+.company-organisms-grid>.company-organism-card{height:100%;box-sizing:border-box}
+.company-payment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+.company-payment-grid label{display:grid;grid-template-rows:minmax(36px,auto) 44px;gap:6px;margin:0}
+.company-payment-grid input{width:100%;min-width:0;height:44px;box-sizing:border-box}
+.company-payment-grid>.wide{grid-column:1/-1;margin:0}
+@media(max-width:700px){.company-organisms-grid{grid-auto-rows:auto}.company-payment-grid{grid-template-columns:1fr}.company-payment-grid label{grid-template-rows:auto 44px}}
