@@ -45,18 +45,18 @@ dialog{width:960px;max-height:90vh;overflow:auto}details{border:1px solid var(--
 .payslip .test-banner{font-size:6.5pt;padding:4px}
 }
 /* Fiche établissement : chaque affiliation dispose de son propre bloc. */
-.company-organisms-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch;grid-auto-rows:auto}
-.company-organism-card{margin:0;min-width:0;padding:18px;border:1px solid #d6e1da;border-radius:11px;background:#f0f6f3}
+.company-organisms-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:stretch;grid-auto-rows:auto}
+.company-organism-card{margin:0;min-width:0;padding:12px;border:1px solid #d6e1da;border-radius:11px;background:#f0f6f3}
 .company-organism-card legend{padding:0 8px;font-weight:700;font-size:14px;color:#245548;max-width:100%}
 .company-organism-card h3{margin:0 0 12px;font-size:15px;color:#245548}
 .company-organism-card p{font-size:12px;margin:4px 0;line-height:1.5}
-.company-organism-fields{display:grid;grid-template-columns:1fr;gap:13px;margin-top:5px}
+.company-organism-fields{display:grid;grid-template-columns:1fr;gap:9px;margin-top:3px}
 .company-organism-fields label{display:grid;gap:6px;font-size:12px;color:#53675d}
 .company-organism-fields input,.company-organism-fields select{width:100%;min-width:0;color:var(--ink)}
 .company-organism-wide{grid-column:1/-1;background:#f4f8f5}
 .company-organism-wide .company-organism-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
 .company-organism-wide .company-organism-fields>p{grid-column:1/-1}
-@media(max-width:700px){.company-organisms-grid,.company-organism-wide .company-organism-fields{grid-template-columns:1fr}.company-organism-card{padding:14px}.company-organism-wide{grid-column:auto}}
+@media(max-width:700px){.company-organisms-grid,.company-organism-wide .company-organism-fields{grid-template-columns:1fr}.company-organism-card{padding:12px}.company-organism-wide{grid-column:auto}}
 
 /* Equal organism cards and aligned salary payment controls. */
 .company-organisms-grid>.company-organism-card{box-sizing:border-box}
@@ -66,7 +66,15 @@ dialog{width:960px;max-height:90vh;overflow:auto}details{border:1px solid var(--
 .company-organism-fields input,.company-organism-fields select{background:#fff}
 .company-organism-card .muted{color:#64796d}
 .company-payment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
-.company-payment-grid label{display:grid;grid-template-rows:minmax(36px,auto) 44px;gap:6px;margin:0}
-.company-payment-grid input{width:100%;min-width:0;height:44px;box-sizing:border-box}
+.company-payment-grid label{display:grid;grid-template-rows:minmax(28px,auto) 38px;gap:4px;margin:0}
+.company-payment-grid input{width:100%;min-width:0;height:38px;padding:8px 10px;box-sizing:border-box}
 .company-payment-grid>.wide{grid-column:1/-1;margin:0}
-@media(max-width:700px){.company-organisms-grid{grid-auto-rows:auto}.company-payment-grid{grid-template-columns:1fr}.company-payment-grid label{grid-template-rows:auto 44px}}
+@media(max-width:700px){.company-organisms-grid{grid-auto-rows:auto}.company-payment-grid{grid-template-columns:1fr}.company-payment-grid label{grid-template-rows:auto 38px}}
+
+/* Compact establishment fields, retaining readable labels and touch targets. */
+.company-organism-fields label{gap:4px;line-height:1.4}
+.company-organism-fields input,.company-organism-fields select{height:38px;padding:8px 10px;font-size:13px;box-sizing:border-box}
+.company-organism-wide .company-organism-fields>label:last-of-type{grid-column:1/-1}
+.company-organism-card h3{margin-bottom:8px}
+.company-payment-grid{gap:10px}
+@media(pointer:coarse){.company-organism-fields input,.company-organism-fields select,.company-payment-grid input{min-height:44px;height:44px}.company-payment-grid label{grid-template-rows:minmax(28px,auto) 44px}}
