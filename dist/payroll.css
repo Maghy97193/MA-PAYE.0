@@ -44,3 +44,16 @@ dialog{width:960px;max-height:90vh;overflow:auto}details{border:1px solid var(--
 .payslip>p{font-size:7pt;line-height:1.2;margin:4px 0}
 .payslip .test-banner{font-size:6.5pt;padding:4px}
 }
+/* Fiche établissement : chaque affiliation dispose de son propre bloc. */
+.company-organisms-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+.company-organism-card{margin:0;min-width:0;padding:18px;border:1px solid #d6e1da;border-radius:11px;background:#fff}
+.company-organism-card legend{padding:0 8px;font-weight:700;font-size:14px;color:#245548;max-width:100%}
+.company-organism-card h3{margin:0 0 12px;font-size:15px;color:#245548}
+.company-organism-card p{font-size:12px;margin:4px 0;line-height:1.5}
+.company-organism-fields{display:grid;grid-template-columns:1fr;gap:13px;margin-top:5px}
+.company-organism-fields label{display:grid;gap:6px;font-size:12px;color:#53675d}
+.company-organism-fields input,.company-organism-fields select{width:100%;min-width:0;color:var(--ink)}
+.company-organism-wide{grid-column:1/-1;background:#f4f8f5}
+.company-organism-wide .company-organism-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+.company-organism-wide .company-organism-fields>p{grid-column:1/-1}
+@media(max-width:700px){.company-organisms-grid,.company-organism-wide .company-organism-fields{grid-template-columns:1fr}.company-organism-card{padding:14px}.company-organism-wide{grid-column:auto}}
