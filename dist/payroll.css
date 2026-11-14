@@ -78,3 +78,7 @@ dialog{width:960px;max-height:90vh;overflow:auto}details{border:1px solid var(--
 .company-organism-card h3{margin-bottom:8px}
 .company-payment-grid{gap:10px}
 @media(pointer:coarse){.company-organism-fields input,.company-organism-fields select,.company-payment-grid input{min-height:44px;height:44px}.company-payment-grid label{grid-template-rows:minmax(28px,auto) 44px}}
+
+.time-toolbar{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.time-toolbar label{margin:0}.time-toolbar input[type=file]{max-width:190px;padding:4px;font-size:12px}.time-totals{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.time-total{background:#edf4f0;border:1px solid #d6e3db;padding:15px;border-radius:10px}.time-total span{display:block;font-size:12px}.time-total strong{display:block;font-size:24px;margin-top:8px}.time-sheet{min-width:1250px}.time-sheet input{width:85px;padding:8px;font-size:13px}.time-sheet td:nth-child(2) input,.time-sheet td:last-child input{width:150px}.time-sheet td,.time-sheet th{padding:8px 5px}.time-context{background:#eef3f8}.time-disabled{background:#f2f2f2;opacity:.6}.time-sheet small{display:block;font-size:10px}.time-check{display:flex;align-items:start;gap:10px;line-height:1.5}.time-check input{width:18px;min-width:18px;height:18px;margin-top:3px}@media(max-width:700px){.time-totals{grid-template-columns:repeat(2,1fr)}.time-toolbar .btn{width:100%}}
+
+.logo .brand-sector{display:block;margin-top:5px;font-size:11px;font-weight:650;letter-spacing:3px;color:#cfddd5}
