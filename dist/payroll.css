@@ -108,3 +108,5 @@ dialog{width:960px;max-height:90vh;overflow:auto}details{border:1px solid var(--
 .time-sheet .time-month-total th,.time-sheet .time-month-total td{background:#214f43;color:#fff;padding:14px 8px;font-size:13px;border:0}
 
 .time-sheet{min-width:1650px}.time-sheet select{width:155px;padding:8px;font-size:13px}.time-sheet td:nth-last-child(2) input{width:150px}
+
+.pilot-panel{margin:0 0 22px;background:#edf4f0;border-color:#c4d9cc}.pilot-panel h2{margin:0 0 8px}.pilot-panel p{margin:6px 0}.pilot-panel .tools{margin:12px 0}.pilot-warning{background:#fff4dc;color:#584522}.pilot-warning p,.pilot-warning li{color:inherit;font-size:12px;line-height:1.5}.pilot-warning li{margin:5px 0}
