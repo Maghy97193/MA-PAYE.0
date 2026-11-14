@@ -1,0 +1,59 @@
+Audit MA PAYE.0 BTP — 14 novembre 2026
+Commande : node --test tests/*.test.cjs
+Code de sortie : 0
+
+Calculs automatiques : base horaire/mensuelle, panier, transport 50 %, arrondis, congés comparés, absence de retenue CIBTP, assiettes et modèles BTP vérifiés.
+✔ tests/automatic-calculations.test.cjs (119.457333ms)
+Révision : 861,70 €, date d’entrée et original conservés ; catalogue et anciennes valeurs vérifiés.
+Enregistrement de la révision, absence de doublon et échec de sauvegarde vérifiés.
+✔ tests/bulletin-revision.test.cjs (137.356055ms)
+CDD : cumul, sortie, taux dérogatoire justifié, exclusions, apprentissage, CDI de chantier et cotisations vérifiés.
+✔ tests/cdd-indemnity.test.cjs (124.816753ms)
+AT/MP : taux zéro, virgule, période de validité, absence de taux universel et cotisation employeur vérifiés.
+✔ tests/company-atmp.test.cjs (145.157173ms)
+SIRET exact, établissement distinct du siège, données manquantes et paiement au 5 : vérifiés.
+✔ tests/company-utils.test.cjs (128.996658ms)
+Catalogue : identifiants uniques, recherches accentuées, filtres, libellés et conservation du texte libre vérifiés.
+✔ tests/conventions.test.cjs (134.023814ms)
+DSN : entrée au 19 octobre incluse, périodes isolées, sélection explicite des révisions et absence de validation automatique vérifiées.
+✔ tests/dsn-preparation.test.cjs (113.677006ms)
+Adresse explicite, ancienne adresse multiligne ou en une ligne et conservation des données vérifiées.
+✔ tests/employee-address.test.cjs (122.848331ms)
+Transport et fin de CDD : données valides, champs facultatifs et incohérences contrôlés.
+✔ tests/employee-fields.test.cjs (83.194144ms)
+Santé au travail : forfait/taux documenté, part salarié nulle, net inchangé et coût employeur vérifiés.
+✔ tests/health-work.test.cjs (82.787032ms)
+70 h × 12,31 = 861,70 ; changement de mode sans second prorata et mode mensuel distinct vérifiés.
+✔ tests/hourly-mode.test.cjs (84.56566ms)
+Compteurs N−1/N, ordre d’imputation, fractions de jour, reprise sans double décompte, champs absents et dépassements vérifiés.
+✔ tests/leave-balances.test.cjs (109.696523ms)
+8 scénarios de calcul et de rejet vérifiés.
+HS 25/50/100, avantages, absence de double comptage et validations supplémentaires vérifiés.
+✔ tests/payroll-engine.test.cjs (96.893253ms)
+PDF : signature, offsets, pages multiples et génération vérifiés.
+✔ tests/payroll-pdf.test.cjs (121.623404ms)
+Le contrôle distingue période compatible non validée et véritable différence d’année.
+✔ tests/period-message.test.cjs (119.610567ms)
+Calendrier, planning, congés acquis, plafond maladie, report, clôture sans dérive, CSG et reprise idempotente vérifiés.
+Entrée/sortie réelles ou prévues, contrat hors mois, droit partiel et arrondi final du cumul vérifiés.
+✔ tests/preparation-automation.test.cjs (81.798856ms)
+151,67 − 81,67 = 70 h ; montants rapprochés, pas de double retenue, autres calculs conservés.
+✔ tests/salary-base-lines.test.cjs (51.362007ms)
+Cas utilisateur octobre 2026 : 1867,06 × 70 / 154 = 848,66 ; mois entier, sortie, horaires fournis et absence de double prorata vérifiés.
+✔ tests/salary-proration.test.cjs (70.74801ms)
+Ancienneté : période, reprise, année bissextile, sortie et dates invalides vérifiées.
+✔ tests/seniority.test.cjs (87.354935ms)
+✔ Entrée le 19 octobre : 70 h, semaines complètes et absence de doublon mensuel (1.681113ms)
+✔ Semaine à cheval : contrôlée entière, seules les dates du mois sont comptées (0.576017ms)
+✔ Contrôles de cohérence quotidienne et état incomplet (0.507706ms)
+✔ Import CSV français : décimales, zéro explicite, chantier cité et durées (0.684239ms)
+✔ Import : doublons, matricule incompatible, formule CSV et date Excel (1.026579ms)
+✔ Toute correction change la signature de la feuille, y compris une journée hors mois (0.684329ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 313.225431
