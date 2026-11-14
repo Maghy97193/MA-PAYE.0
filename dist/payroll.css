@@ -89,8 +89,15 @@ dialog{width:960px;max-height:90vh;overflow:auto}details{border:1px solid var(--
 .top>.subscriber-top{grid-column:2;grid-row:1;justify-self:end;min-height:44px;margin:0;padding:10px 16px;background:#edf0ef;color:var(--ink);border:1px solid #d5ded9;border-radius:9px;white-space:nowrap}
 .top>.subscriber-top:hover{background:#e1e8e4}
 .workspace-controls{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:stretch;min-width:0}
-.workspace-controls>#company,.workspace-controls>#period{width:100%;min-width:0;height:46px;margin:0;padding:10px 12px;box-sizing:border-box;border:1px solid #d5ded9;border-radius:9px;font-size:14px}
-.workspace-controls>#company{background:#fff}
-.workspace-controls>#period{background:#edf0ef;color:var(--ink)}
+/* Les cadres ont la même taille ; le champ natif iPad reste contenu. */
+.workspace-filter{display:flex;align-items:center;width:100%;min-width:0;height:48px;box-sizing:border-box;border:1px solid #d5ded9;border-radius:9px;overflow:hidden;background:#fff}
+.workspace-filter.workspace-period{background:#edf0ef}
+.workspace-filter>#company,.workspace-filter>#period{display:block;flex:1 1 0;min-width:0;width:100%;max-width:100%;height:100%;margin:0;padding:10px 12px;box-sizing:border-box;border:0;border-radius:0;background:transparent;color:var(--ink);font:inherit;font-size:16px;-webkit-appearance:none;appearance:none}
+.workspace-filter.workspace-company{position:relative}
+.workspace-filter.workspace-company::after{content:'⌄';position:absolute;right:12px;pointer-events:none;color:#526b62}
+.workspace-filter>#company{padding-right:30px;text-overflow:ellipsis}
+.workspace-filter>#period::-webkit-date-and-time-value{text-align:left;min-height:1.5em}
+.workspace-filter>#period::-webkit-datetime-edit{padding:0}
+.workspace-filter:focus-within{outline:2px solid #8cad55;outline-offset:2px}
 .time-import-help{flex-basis:100%;margin:2px 0 0;font-size:12px;line-height:1.5;color:#60786b}
-@media(max-width:650px){.top{gap:12px 10px}.top>span{font-size:12px}.top>.subscriber-top{font-size:12px;padding:10px 12px}.workspace-controls{gap:10px}.workspace-controls>#company,.workspace-controls>#period{font-size:13px;padding:10px 8px}}
+@media(max-width:650px){.top{gap:12px 10px}.top>span{font-size:12px}.top>.subscriber-top{font-size:12px;padding:10px 12px}.workspace-controls{gap:10px}.workspace-filter>#company,.workspace-filter>#period{font-size:16px;padding:10px 8px}.workspace-filter>#company{padding-right:28px}}
